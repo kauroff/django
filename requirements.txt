@@ -46,4 +46,5 @@ virtualenv==20.26.6
 webencodings==0.5.1
 zipp==3.19.1
 psycopg2-binary
-Pillow
+pillow
+ipython
