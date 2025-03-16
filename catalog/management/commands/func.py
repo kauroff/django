@@ -1,11 +1,37 @@
 from django.core.management import BaseCommand
 
-from catalog.models import Product
+from catalog.models import Product, Category
 
 
 class Command(BaseCommand):
 
     def handle(self, fixture_path=None, *args, **options):
+        categories_list = [
+            {
+                "id": 1,
+                "name": "Электроника",
+                "description": "Штучки, которые работают только при включении в сеть"
+            },
+            {
+                "id": 2,
+                "name": "Периферия",
+                "description": "Штучки для компа"
+
+            },
+            {
+                "id": 3,
+                "name": "Прочее",
+                "description": None
+            }
+        ]
+
+        categories_for_create = []
+        Category.objects.all().delete()
+        for category_item in categories_list:
+            categories_for_create.append(Category(**category_item))
+
+        Category.objects.bulk_create(categories_for_create)
+
         products_list = [
             {
                 "name": "Компьютерная мышка",
@@ -60,4 +86,3 @@ class Command(BaseCommand):
             products_for_create.append(Product(**product_item))
 
         Product.objects.bulk_create(products_for_create)
-
