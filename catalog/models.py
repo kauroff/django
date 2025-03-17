@@ -1,12 +1,12 @@
 from django.db import models
 
-
 NULLABLE = {'blank': True, 'null': True}
 
 
 class Category(models.Model):
     name = models.CharField(max_length=50, verbose_name='наименование')
     description = models.TextField(**NULLABLE, verbose_name='описание')
+
     # created_at = models.DateTimeField(**NULLABLE, verbose_name='создание')
 
     def __str__(self):
@@ -32,3 +32,16 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'продукт'
         verbose_name_plural = 'продукты'
+
+
+class Contact(models.Model):
+    city = models.CharField(max_length=50, verbose_name='город')
+    address = models.CharField(max_length=50, verbose_name='адрес')
+    phone = models.CharField(max_length=12, verbose_name='номер')
+
+    def __str__(self):
+        return f'{self.city} {self.phone}'
+
+    class Meta:
+        verbose_name = 'контакт'
+        verbose_name_plural = 'контакты'
