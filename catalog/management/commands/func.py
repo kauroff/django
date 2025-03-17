@@ -43,7 +43,7 @@ class Command(BaseCommand):
             },
             {
                 "name": "Клавиатура",
-                "description": "Крутая, беспроводная, механическая",
+                "description": "Беспроводная, механическая",
                 "image": "",
                 "category": Category.objects.get(pk=2),
                 "unit_price": 2000,

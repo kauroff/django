@@ -2,9 +2,15 @@ import json
 
 from django.shortcuts import render
 
+from catalog.models import Product, Contact
+
 
 def index(request):
-    return render(request, 'catalog/index.html')
+    context = {
+        'object_list': Product.objects.all(),
+        'title': 'Каталог'
+    }
+    return render(request, 'catalog/index.html', context)
 
 
 def contacts(request):
@@ -13,4 +19,8 @@ def contacts(request):
         phone = request.POST.get('phone')
         message = request.POST.get('message')
         print(name, phone, message)  # решил пока собранные данные выводить в консоль
-    return render(request, 'catalog/contacts.html')
+    context = {
+        'object_list': Contact.objects.all(),
+        'title': 'Контакты'
+    }
+    return render(request, 'catalog/contacts.html', context)
