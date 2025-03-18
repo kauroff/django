@@ -24,3 +24,17 @@ def contacts(request):
         'title': 'Контакты'
     }
     return render(request, 'catalog/contacts.html', context)
+
+
+def product(request):
+    context = {
+        'title': 'Товар'
+    }
+    return render(request, 'catalog/product.html', context)
+
+
+def basket(request):
+    context = {
+        'title': 'Корзина'
+    }
+    return render(request, 'catalog/basket.html', context)
