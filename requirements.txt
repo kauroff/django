@@ -97,4 +97,3 @@ zipp==3.19.1
 psycopg2-binary
 pillow
 ipython
-вфыв
