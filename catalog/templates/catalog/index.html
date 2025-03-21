@@ -14,7 +14,7 @@
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         <li>{{ object.description }}</li>
                     </ul>
-                    <a class="p-2 btn btn-outline-primary" href="/product">Подробнее</a>
+                    <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:product' object.pk %}">Подробнее</a>
                 </div>
             </div>
         </div>

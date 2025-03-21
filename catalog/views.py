@@ -26,8 +26,9 @@ def contacts(request):
     return render(request, 'catalog/contacts.html', context)
 
 
-def product(request):
+def product(request, pk):
     context = {
+        'object_list': Product.objects.get(pk=pk),
         'title': 'Товар'
     }
     return render(request, 'catalog/product.html', context)
