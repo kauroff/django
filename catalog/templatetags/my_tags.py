@@ -4,13 +4,15 @@ register = template.Library()
 
 
 # Создание тега
-# @register.simple_tag
-# def current_time(format_string):
-#     return None
+@register.simple_tag
+def mediapath(val):
+    if val:
+        return f'/media/{val}'
+    return '#'
 
 
 # Создание фильтра
-@register.filter(needs_autoescape=True)
+@register.filter
 def mediapath(val):
     if val:
         return f'/media/{val}'
