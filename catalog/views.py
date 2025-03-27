@@ -1,6 +1,4 @@
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView, TemplateView
-
-from django.shortcuts import render
+from django.views.generic import DetailView, ListView, TemplateView
 
 from catalog.models import Product, Contact
 
