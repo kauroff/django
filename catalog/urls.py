@@ -1,5 +1,6 @@
 from django.urls import path
 
+from blog.views import PostListView
 from catalog.apps import CatalogConfig
 from catalog.views import IndexView, CatalogListView, ProductDetailView, ContactsView, BasketListView
 
@@ -11,5 +12,4 @@ urlpatterns = [
     path('contacts/', ContactsView.as_view(), name='contacts'),
     path('<int:pk>/product/', ProductDetailView.as_view(), name='product'),
     path('basket/', BasketListView.as_view(), name='basket'),
-    path('blog/', BasketListView.as_view(), name='blog'),
 ]
