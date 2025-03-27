@@ -3,11 +3,11 @@
 {% block content %}
 <div class="col-12">
     <div class="row">
-        <div class="col-6">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">
-                        Пост "{{ object.title }}"
+                    <h3 class="card-title text-center">
+                        {{ object.title }}
                     </h3>
                 </div>
                 <div class="card-body">
@@ -16,6 +16,11 @@
                     </p>
                 </div>
             </div>
+            Просмотров: {{ object.views_count }}
+            <nav class="blog-pagination">
+                <a class="btn btn-outline-secondary" href="{% url 'blog:edit' object.pk %}">Редактировать</a>
+                <a class="btn btn-outline-secondary" href="{% url 'blog:delete' object.pk %}">Удалить</a>
+            </nav>
         </div>
     </div>
 </div>
