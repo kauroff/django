@@ -1,5 +1,5 @@
 {% extends 'catalog/base.html' %}
-
+{% load my_tags %}
 {% block content %}
 <div class="container">
     <div class="p-md-5 text-white rounded bg-dark">
@@ -51,19 +51,16 @@
             <h3 class="pb-3 mb-4 font-italic border-bottom">
                 Лента
             </h3>
-            <div class="blog-post">
-                {% for object in object_list %}
-                <h2 class="blog-post-title">{{ object.title }}</h2>
+            {% for object in object_list %}
+            <div class="blog-post mt-5">
+                <img src="{{ object.image|mediapath }}" style="width: 100%; height: auto;">
+                <h2 class="blog-post-title mt-3">{{ object.title }}</h2>
                 <p class="blog-post-meta">{{ object.create_date}}</p>
-                <p>{{ object.body }}</p>
+                <p>{{ object.body | truncatechars:100 }}</p>
+                <a class="p-2 btn btn-outline-primary" href="{% url 'blog:view' object.pk %}">Читать далее...</a>
                 <hr>
-                {% endfor %}
             </div><!-- /.blog-post -->
-
-            <nav class="blog-pagination">
-                <a class="btn btn-outline-primary" href="#">Older</a>
-                <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-            </nav>
+            {% endfor %}
 
         </div><!-- /.blog-main -->
 
