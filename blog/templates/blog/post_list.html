@@ -23,7 +23,7 @@
                     <a href="{% url 'blog:create' %}">Создать пост</a>
                 </div>
                 {% load static %}
-                <img class="card-img-right flex-auto d-none d-md-block"
+                <img class="card-img-right flex-auto d-none d-md-block rounded"
                      src="{% static 'blog/images/idea.jpg' %}" style="width: 300px;">
             </div>
         </div>
@@ -39,7 +39,7 @@
                         поиск!</p>
                     <a href="#">Найти</a>
                 </div>
-                <img class="card-img-right flex-auto d-none d-md-block"
+                <img class="card-img-right flex-auto d-none d-md-block rounded"
                      src="{% static 'blog/images/search.png' %}" style="width: 300px;">
             </div>
         </div>
@@ -54,10 +54,10 @@
             </h3>
             {% for object in object_list %}
             <div class="blog-post mt-5">
-                <img src="{{ object.image|mediapath }}" class="rounded border border-primary shadow"
+                <img src="{{ object.image|mediapath }}" class="rounded border border-secondary shadow"
                      style="width: 100%; height: auto;">
                 <h2 class="blog-post-title mt-3">{{ object.title }}</h2>
-                <p class="blog-post-meta">{{ object.create_date}}</p>
+                <p class="blog-post-meta">{{ object.create_date }}</p>
                 {% if object.body|length > 100 %}
                 <p>{{ object.body | truncatechars:100 }}</p>
                 {% else %}
